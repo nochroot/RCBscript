@@ -11,9 +11,9 @@
 
 
 (function() {
-    'use strict';
+    'use strict'; // just leave this. Not worth understanding why
 
-    // Your code here...
+    
 
     //make a button so DOM(?) can load. otherwise the values we want are null
 var input=document.createElement("input");
@@ -23,6 +23,7 @@ input.onclick = doWork;
 
 //document.body.appendChild(input); //Puts button way at bottom. Don't like...
 
+//this is ok button placement for now
 var parentElement = document.getElementsByClassName("section-title")[0]; //where i want the button to be after. returns all elements (plural) as a "node list" so needs index
 parentElement.appendChild(input); //puts our button into the right spot
 
