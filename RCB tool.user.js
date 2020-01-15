@@ -31,7 +31,8 @@ parentElement.appendChild(input); //puts our button into the right spot
 
 function doWork()
 {
-
+//grab the stuff and put into readable text
+//interestingly they dont use "id" (which are unique and able to use css) so cant use getElementById 
     //get elements by name returns a "node list" so you have to access by index
    var primaryTumorBedArea = document.getElementsByName("d1")[0].value;
 
