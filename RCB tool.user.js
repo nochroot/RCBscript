@@ -61,12 +61,36 @@ function doWork()
 //grab the stuff and put into readable text
 //interestingly they dont use "id" (which are unique and able to use css) so cant use getElementById 
     //get elements by name returns a "node list" so you have to access by index
-   var primaryTumorBedArea = document.getElementsByName("d1")[0].value;
-
-  console.log( 'Primary tumor bed area: '+ primaryTumorBedArea);
-//  console.log( primaryTumorBedArea);
-
-    alert('Primary tumor bed area: '+ primaryTumorBedArea);
+    var d1 = document.getElementsByName("d1")[0].value;
+    var d2 = document.getElementsByName("d2")[0].value;
+    var primaryTumorBedArea = "Primary tumor bed area: " + d1 + " mm" x  + d2 +  " mm ";
+ //   console.log( 'Primary tumor bed area: '+ primaryTumorBedArea);
+   // alert('Primary tumor bed area: '+ primaryTumorBedArea);
+    
+    var pCell = document.getElementsByName("pCell")[0].value;
+    var cellularity = "Overall Cancer Cellularity (as percentage of area):" + pCell + "%";
+    
+    var pInSitu = document.getElementsByName("pInSitue")[0].value;
+    var inSitu = "Percentage of cancer that is in situ disease: " + pInSitu + "%";
+    
+    var nLn = document.getElementsByName("nLn")[0].value;
+    var numberOfPositiveNodes = "Number of positive lymph nodes: " + nLn;
+    
+    var dMet = document.getElementsByName("dMet")[0].value;
+    var diameter = "Diameter of largest metastasis :" + dMet + " mm ";
+    
+    var rcbIndex = document.getElementsByName("rcbIndex")[0].value;
+    
+    var rcbClass = document.getElementsByName("rcbClass")[0].value;
+    
+    var finalString = "Primary Tumor Bed \n" + primaryTumorBedArea + "\n" + cellularity + "\n" + inSitu + "\n"
+                + "\n"
+                + "Lymph nodes: " + "\n" + numberOfPositiveNodes + "\n" + diameter + "\n" 
+                + "\n"
+                + "RCB index: " + rcbIndex + "\n"
+                + "RCB Class: " + rcbClass + "\n";
+    alert ( "testing: " + finalString);
+    
 }
 })(
 
