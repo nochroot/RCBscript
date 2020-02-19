@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         RCB tool
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      0.0.2
 // @description  Grab RCB data elements
 // @author       ?
 // @match        http://www3.mdanderson.org/app/medcalc/index.cfm?pagename=jsconvert3
 // @grant GM_setClipboard
 // ==/UserScript==
-
+ 
 /*
 /////////////////////////
 The above metadata is needed for usersccript to work
@@ -46,23 +46,12 @@ The above metadata is needed for usersccript to work
 (function() {
     'use strict'; // recommended to just leave this. Not worth understanding why. Supposedly helps debugging.
 
-    //make a button so DOM(?) can load. otherwise the values we want are null
-    var customButton=document.createElement("input");
-    customButton.type="button";
-    customButton.value="COPY VALUES TO CLIPBOARD";
-    customButton.onclick = doWork;
+    document.getElementsByName("submit")[0].addEventListener('click', doWork());
 
-    //document.body.appendChild(input);
-    //^Puts button way at bottom of page. Don't like...
+    function doWork(){
+    //just use jquery :(
+    $('document').ready(function(){     //grab the stuff and put into readable text
 
-    //the following is better button placement for now. Append it to the area before the table.
-    var parentElement = document.getElementsByClassName("section-title")[0]; //where i want the button to be after. returns all elements (plural) as a "node list" so needs index
-    parentElement.appendChild(customButton); //puts our button into the right spot
-
-
-
-function doWork()     //grab the stuff and put into readable text
-{
     //interestingly they dont use "id" (id are unique and able to use css) so cant use getElementById
     //instead, get elements by "name" returns a "node list" so you have to access by index...there is only one instance
 
@@ -97,13 +86,10 @@ function doWork()     //grab the stuff and put into readable text
     alert ( "copy to clipboard" + finalString);
     GM_setClipboard (finalString); //set clipboard (https://sourceforge.net/p/greasemonkey/wiki/GM_setClipboard/)
 
+ });
+
 }
-})(
 
-
-
-
-
-);
+})();
 
 
